@@ -1,9 +1,10 @@
 const request = require('request')
+require('dotenv').config()
 
 class ChatGptClient {
     constructor() {
         this.url = "https://api.openai.com/v1/completions"
-        this.token = "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"
+        this.token = process.env.GPT_TOKEN
     }
 
     generatePayloadText(text) {
