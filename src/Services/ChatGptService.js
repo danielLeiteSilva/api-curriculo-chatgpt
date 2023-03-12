@@ -25,7 +25,7 @@ class ChatGptService {
         try {
 
             const resulm = await this.chatGptClient.gptCreateResumeText(request.body.resulm)
-            const description = await this._getDescription(request.body.vacancy, resulm.message)
+            const description = this._getDescription(request.body.vacancy, resulm.message)
             const result = await this.chatGptClient.gptAnalisysText(description)
 
             response.status(200).json(result)
