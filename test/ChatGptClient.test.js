@@ -30,7 +30,7 @@ describe("Test class ChatGptClient", function () {
     })
 
     it("return gptCreateResumeText 200", function (done) {
-        this.timeout(300000);
+        this.timeout(3600000);
         chatGptTestClient.gptCreateResumeText("Test")
         .then(response => {
             expect(response.code).to.be.equals(200)
@@ -39,7 +39,7 @@ describe("Test class ChatGptClient", function () {
     })
 
     it("return gptCreateResumeText 401", function (done) {
-        this.timeout(300000);
+        this.timeout(3600000);
         chatGptTestClient.token = "0000"
         chatGptTestClient.gptCreateResumeText(Object)
         .then(response => {
@@ -49,7 +49,7 @@ describe("Test class ChatGptClient", function () {
     })
 
     it("return gptCreateResumeText 404", function (done) {
-        this.timeout(300000);
+        this.timeout(3600000);
         chatGptTestClient.url = "0000"
         chatGptTestClient.gptCreateResumeText(Object)
         .then(response => {
@@ -59,7 +59,7 @@ describe("Test class ChatGptClient", function () {
     })
 
     it("return gptAnalisysText 200", function (done) {
-        this.timeout(300000);
+        this.timeout(3600000);
         chatGptTestClient.gptAnalisysText(text)
         .then(response => {
             expect(response.code).to.be.equals(200)
@@ -68,7 +68,7 @@ describe("Test class ChatGptClient", function () {
     })
 
     it("return gptAnalisysText 401", function (done) {
-        this.timeout(300000);
+        this.timeout(3600000);
         chatGptTestClient.token = "0000"
         chatGptTestClient.gptAnalisysText(Object)
         .then(response => {
@@ -78,7 +78,7 @@ describe("Test class ChatGptClient", function () {
     })
 
     it("return gptAnalisysText 404", function (done) {
-        this.timeout(300000);
+        this.timeout(3600000);
         chatGptTestClient.url = "0000"
         chatGptTestClient.gptAnalisysText(Object)
         .then(response => {
