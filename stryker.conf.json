@@ -7,7 +7,6 @@
     "clear-text",
     "progress"
   ],
-  "testRunner": "mocha",
   "testRunner_comment": "Take a look at (missing 'homepage' URL in package.json) for information about the mocha plugin.",
   "coverageAnalysis": "perTest",
   "concurrency": 4,
