@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "nyc --cache mocha --watch=false --code-coverage --no-progress"
+    "test": "nyc --cache mocha --watch=false"
   },
   "keywords": [],
   "author": "",
