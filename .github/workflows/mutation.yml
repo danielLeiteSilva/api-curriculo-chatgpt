@@ -2,6 +2,6 @@ name: Mutation Test CI
 on: 
   workflow_dispatch:
 jobs:
-  mutation-test:
+  mutation_test_step:
     uses: danielLeiteSilva/reusable-workflows/.github/workflows/mutation-node.yml@main
     
