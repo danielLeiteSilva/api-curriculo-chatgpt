@@ -6,3 +6,4 @@ coverage
 .stryker-tmp
 .nyc_output
 reports
+stryker.log
