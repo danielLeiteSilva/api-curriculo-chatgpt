@@ -1,28 +1,27 @@
-on:
-  # Trigger analysis when pushing in master or pull requests, and when creating
-  # a pull request. 
-  workflow_dispatch: 
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
-  #     types: [opened, synchronize, reopened]
+name: SonarCloud Analysis
 
-name: SonarQube Scan
+on:
+  workflow_dispatch: 
+   
 jobs:
-  sonarqube:
-    name: SonarQube Trigger
+  sonarcloud:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checking out
-      uses: actions/checkout@master
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
       with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
-      with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
-        projectBaseDir: "test/"
-        projectKey: "api-curriculo-chatgpt"
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Build with Maven
+      run: mvn clean install
+
+    - name: Run SonarCloud analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+        SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+      run: mvn sonar:sonar
