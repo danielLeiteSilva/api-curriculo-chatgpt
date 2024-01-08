@@ -7,7 +7,7 @@ const Router = require("express").Router()
 Router.get("/", Helth)
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://analise-curriculo-front.vercel.app',
     optionsSuccessStatus: 200
 }
 
